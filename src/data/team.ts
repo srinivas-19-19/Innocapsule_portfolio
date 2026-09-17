@@ -10,6 +10,9 @@ export interface TeamMember {
   verified: boolean
 }
 
+const baseUrl = import.meta.env.BASE_URL || '/'
+const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`
+
 export const teamMembers: TeamMember[] = [
   {
     id: 'founder',
@@ -17,7 +20,7 @@ export const teamMembers: TeamMember[] = [
     subtitle: 'Founder & Product Architect',
     clearance: 'LEVEL 01 // CORE AUTHORITY',
     badgeId: 'INN-001-FNDR',
-    image: '/team/founder.png',
+    image: `${cleanBase}team/founder.png`,
     bio: 'Guiding visionary strategy, design systems, and intelligent product architecture from concept to deployed systems.',
     focus: ['Systems Architecture', 'Product Strategy', 'Autonomous UX'],
     verified: true,
@@ -28,7 +31,7 @@ export const teamMembers: TeamMember[] = [
     subtitle: 'Co-Founder & Operations',
     clearance: 'LEVEL 01 // CORE AUTHORITY',
     badgeId: 'INN-002-COFNDR',
-    image: '/team/co-founder.jpg',
+    image: `${cleanBase}team/co-founder.jpg`,
     bio: 'Directing operational scale, technical infrastructure, and engineering execution across product portfolios.',
     focus: ['Platform Infrastructure', 'Engineering Operations', 'Full-Stack Scalability'],
     verified: true,
