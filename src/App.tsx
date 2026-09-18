@@ -130,7 +130,9 @@ export const MainContent: React.FC = () => {
           {/* Direct Email Contact Link */}
           <div className="flex items-center gap-2">
             <a
-              href="mailto:innocapsule@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=innocapsule@gmail.com&su=Innocapsule%20Project%20Inquiry"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.06] dark:border-white/[0.08] text-neutral-700 dark:text-neutral-300 hover:text-[#FF4500] hover:border-[#FF4500]/30 transition-all text-xs font-mono-tech"
             >
               <Mail className="w-3.5 h-3.5 text-[#FF4500]" />

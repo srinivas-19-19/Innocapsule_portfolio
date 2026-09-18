@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { TechOrbitals } from './TechOrbitals'
 
 export const HeroContent: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -58,10 +59,13 @@ export const HeroContent: React.FC = () => {
         <motion.div
           animate={{ y: [-7, 7, -7] }}
           transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-          className="relative inline-block"
+          className="relative inline-flex items-center justify-center"
         >
-          {/* Main 3D Extruded Title */}
-          <h1 className="relative text-5xl min-[480px]:text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] xl:text-[9.5rem] font-black tracking-tighter uppercase font-display leading-none text-center select-none flex items-center justify-center">
+          {/* Planetary Orbital Tech System */}
+          <TechOrbitals />
+
+          {/* Main 3D Extruded Title (z-20 so it remains dominant and crisp) */}
+          <h1 className="relative z-20 text-5xl min-[480px]:text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] xl:text-[9.5rem] font-black tracking-tighter uppercase font-display leading-none text-center select-none flex items-center justify-center pointer-events-none">
             {/* INNO - 3D Architectural / Platinum Extrusion */}
             <span className="text-3d-inno transition-transform duration-300 inline-block drop-shadow-sm group-hover:scale-[1.01]">
               INNO
