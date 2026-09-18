@@ -47,18 +47,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-3xl rounded-2xl bg-[#090D15] border border-white/[0.12] p-6 sm:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.8)] overflow-hidden z-10 max-h-[90vh] overflow-y-auto"
+            className="relative w-full max-w-3xl rounded-2xl bg-white dark:bg-[#090D15] border border-black/[0.1] dark:border-white/[0.12] p-6 sm:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.3)] dark:shadow-[0_24px_80px_rgba(0,0,0,0.8)] overflow-hidden z-10 max-h-[90vh] overflow-y-auto"
           >
             {/* Top Close Button */}
-            <div className="flex items-center justify-between border-b border-white/[0.08] pb-5 mb-6">
-              <div className="flex items-center gap-2 text-xs font-mono-tech text-neutral-400">
-                <span className="w-2 h-2 rounded-full bg-[#00F0FF]" />
+            <div className="flex items-center justify-between border-b border-black/[0.08] dark:border-white/[0.08] pb-5 mb-6">
+              <div className="flex items-center gap-2 text-xs font-mono-tech text-neutral-500 dark:text-neutral-400">
+                <span className="w-2 h-2 rounded-full bg-[#FF4500]" />
                 <span>PROJECT SPECIFICATION // {project.id.toUpperCase()}</span>
               </div>
 
               <button
                 onClick={onClose}
-                className="p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-white/[0.06] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00F0FF]"
+                className="p-2 rounded-lg text-neutral-500 hover:text-black dark:text-neutral-400 dark:hover:text-white hover:bg-black/[0.05] dark:hover:bg-white/[0.06] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500]"
                 aria-label="Close project modal"
               >
                 <X className="w-5 h-5" />
@@ -67,40 +67,40 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
             {/* Title & Category */}
             <div className="flex flex-col gap-2 mb-6">
-              <span className="text-xs font-mono-tech text-[#00F0FF] uppercase tracking-wider">
+              <span className="text-xs font-mono-tech text-[#FF4500] uppercase tracking-wider font-semibold">
                 {project.category}
               </span>
               <h3
                 id="modal-project-title"
-                className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight"
+                className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white tracking-tight"
               >
                 {project.title}
               </h3>
             </div>
 
             {/* Main Visual Frame */}
-            <div className="w-full h-52 sm:h-64 rounded-xl bg-[#0F1626] border border-white/[0.08] mb-6 p-6 flex flex-col justify-between relative overflow-hidden">
+            <div className="w-full h-52 sm:h-64 rounded-xl bg-neutral-100 dark:bg-[#0F1626] border border-black/[0.08] dark:border-white/[0.08] mb-6 p-6 flex flex-col justify-between relative overflow-hidden">
               <div className="absolute inset-0 bg-tech-grid opacity-30 pointer-events-none" />
               <div
                 className="absolute -right-12 -bottom-12 w-48 h-48 rounded-full blur-[60px] pointer-events-none"
-                style={{ backgroundColor: `${project.accentColor}20` }}
+                style={{ backgroundColor: `${project.accentColor}30` }}
               />
 
-              <div className="flex items-center justify-between text-xs font-mono-tech text-neutral-400">
+              <div className="flex items-center justify-between text-xs font-mono-tech text-neutral-600 dark:text-neutral-400">
                 <div className="flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-[#00F0FF]" />
+                  <Layers className="w-4 h-4 text-[#FF4500]" />
                   <span>ARCHITECTURE ENGINE</span>
                 </div>
-                <span className="px-2.5 py-0.5 rounded bg-white/[0.06] text-white">
+                <span className="px-2.5 py-0.5 rounded bg-black/[0.06] dark:bg-white/[0.06] text-neutral-900 dark:text-white font-medium">
                   {project.status}
                 </span>
               </div>
 
               <div className="my-auto flex flex-col items-center text-center gap-2">
-                <span className="text-xl sm:text-2xl font-bold text-white tracking-wide">
+                <span className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white tracking-wide">
                   {project.title}
                 </span>
-                <span className="text-xs text-neutral-400 max-w-md">
+                <span className="text-xs text-neutral-600 dark:text-neutral-400 max-w-md">
                   {project.shortDescription}
                 </span>
               </div>
@@ -113,25 +113,25 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
             {/* Detailed Description */}
             <div className="flex flex-col gap-4 mb-8">
-              <h4 className="text-xs font-mono-tech text-neutral-400 uppercase tracking-wider">
+              <h4 className="text-xs font-mono-tech text-neutral-500 dark:text-neutral-400 uppercase tracking-wider font-semibold">
                 Overview & Technical Architecture
               </h4>
-              <p className="text-neutral-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base leading-relaxed">
                 {project.description}
               </p>
             </div>
 
             {/* Technologies */}
             <div className="flex flex-col gap-3 mb-8">
-              <h4 className="text-xs font-mono-tech text-neutral-400 uppercase tracking-wider flex items-center gap-1.5">
-                <Cpu className="w-3.5 h-3.5 text-[#00F0FF]" />
+              <h4 className="text-xs font-mono-tech text-neutral-500 dark:text-neutral-400 uppercase tracking-wider flex items-center gap-1.5 font-semibold">
+                <Cpu className="w-3.5 h-3.5 text-[#FF4500]" />
                 <span>Core Technology Stack</span>
               </h4>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 rounded-md bg-white/[0.04] border border-white/[0.08] text-xs font-mono-tech text-neutral-300"
+                    className="px-3 py-1 rounded-md bg-black/[0.04] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] text-xs font-mono-tech text-neutral-700 dark:text-neutral-300"
                   >
                     {tech}
                   </span>
@@ -140,7 +140,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
 
             {/* Modal Actions */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/[0.08]">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-black/[0.08] dark:border-white/[0.08]">
               <div className="flex items-center gap-2 text-xs font-mono-tech text-neutral-500">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                 <span>Production Pipeline Ready</span>

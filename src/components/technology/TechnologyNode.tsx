@@ -47,10 +47,10 @@ export const TechnologyNode: React.FC<TechnologyNodeProps> = ({
         <circle
           r="64"
           fill="none"
-          stroke="#00F0FF"
+          stroke="#FF4500"
           strokeWidth="1"
           strokeDasharray="4 4"
-          opacity="0.25"
+          opacity="0.35"
           className="animate-[spin_16s_linear_infinite]"
         />
       )}
@@ -62,8 +62,8 @@ export const TechnologyNode: React.FC<TechnologyNodeProps> = ({
         width="190"
         height="64"
         rx="12"
-        fill={isHighlighted ? '#101726' : '#090D15'}
-        stroke={isHighlighted ? '#00F0FF' : 'rgba(255, 255, 255, 0.1)'}
+        fill={isHighlighted ? '#1E2530' : '#0F1522'}
+        stroke={isHighlighted ? '#FF4500' : 'rgba(255, 255, 255, 0.12)'}
         strokeWidth={isHighlighted ? '1.5' : '1'}
         className="transition-colors duration-300"
         filter="drop-shadow(0 4px 16px rgba(0,0,0,0.5))"
@@ -74,7 +74,7 @@ export const TechnologyNode: React.FC<TechnologyNodeProps> = ({
         cx="0"
         cy={y < 260 ? 32 : -32}
         r="3.5"
-        fill={isHighlighted ? '#00F0FF' : '#64748B'}
+        fill={isHighlighted ? '#FF4500' : '#64748B'}
         stroke="#06070B"
         strokeWidth="1.5"
       />
@@ -84,14 +84,14 @@ export const TechnologyNode: React.FC<TechnologyNodeProps> = ({
         cx="-76"
         cy="-12"
         r="2.5"
-        fill={isHighlighted ? '#00F0FF' : '#64748B'}
+        fill={isHighlighted ? '#FF4500' : '#64748B'}
       />
 
       {/* Category Number */}
       <text
         x="-66"
         y="-9"
-        fill={isHighlighted ? '#00F0FF' : '#64748B'}
+        fill={isHighlighted ? '#FF4500' : '#94A3B8'}
         fontSize="9"
         fontFamily="JetBrains Mono, monospace"
         fontWeight="600"

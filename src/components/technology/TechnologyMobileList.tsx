@@ -25,8 +25,8 @@ export const TechnologyMobileList: React.FC<TechnologyMobileListProps> = ({
             key={cat.id}
             className={`rounded-xl border transition-all duration-300 overflow-hidden ${
               isExpanded
-                ? 'bg-white/[0.04] border-white/[0.14] shadow-[0_4px_24px_rgba(0,0,0,0.3)]'
-                : 'bg-white/[0.02] border-white/[0.06] hover:border-white/[0.1]'
+                ? 'bg-orange-500/[0.04] dark:bg-white/[0.04] border-[#FF4500]/30 dark:border-white/[0.14] shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]'
+                : 'bg-black/[0.02] dark:bg-white/[0.02] border-black/[0.06] dark:border-white/[0.06] hover:border-black/10 dark:hover:border-white/[0.1]'
             }`}
           >
             <button
@@ -34,19 +34,19 @@ export const TechnologyMobileList: React.FC<TechnologyMobileListProps> = ({
               onClick={() => toggleCategory(cat.id)}
               aria-expanded={isExpanded}
               aria-controls={`tech-content-${cat.id}`}
-              className="w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00F0FF]/60"
+              className="w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500]/60"
             >
               <div className="flex items-center gap-3.5">
                 <span
-                  className={`font-mono-tech text-xs transition-colors ${
-                    isExpanded ? 'text-[#00F0FF] font-bold' : 'text-neutral-500'
+                  className={`font-mono-tech text-xs transition-colors font-bold ${
+                    isExpanded ? 'text-[#FF4500]' : 'text-neutral-500'
                   }`}
                 >
                   {cat.number}
                 </span>
                 <span
                   className={`text-sm sm:text-base font-semibold tracking-tight transition-colors ${
-                    isExpanded ? 'text-white' : 'text-neutral-300'
+                    isExpanded ? 'text-neutral-900 dark:text-white' : 'text-neutral-700 dark:text-neutral-300'
                   }`}
                 >
                   {cat.title}
@@ -56,8 +56,8 @@ export const TechnologyMobileList: React.FC<TechnologyMobileListProps> = ({
               <div
                 className={`w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 ${
                   isExpanded
-                    ? 'rotate-180 bg-[#00F0FF]/15 text-[#00F0FF]'
-                    : 'bg-white/[0.04] text-neutral-400'
+                    ? 'rotate-180 bg-[#FF4500]/15 text-[#FF4500]'
+                    : 'bg-black/[0.04] dark:bg-white/[0.04] text-neutral-500 dark:text-neutral-400'
                 }`}
               >
                 <ChevronDown className="w-4 h-4" />
@@ -72,9 +72,9 @@ export const TechnologyMobileList: React.FC<TechnologyMobileListProps> = ({
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.25, ease: 'easeOut' }}
-                  className="px-5 pb-5 pt-1 border-t border-white/[0.04]"
+                  className="px-5 pb-5 pt-1 border-t border-black/[0.06] dark:border-white/[0.04]"
                 >
-                  <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
                     {cat.description}
                   </p>
 
@@ -86,7 +86,7 @@ export const TechnologyMobileList: React.FC<TechnologyMobileListProps> = ({
                       {cat.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="text-xs px-2.5 py-1 rounded bg-white/[0.04] text-neutral-200 border border-white/[0.08]"
+                          className="text-xs px-2.5 py-1 rounded bg-black/[0.04] dark:bg-white/[0.04] text-neutral-700 dark:text-neutral-200 border border-black/[0.08] dark:border-white/[0.08]"
                         >
                           {tech}
                         </span>
@@ -95,9 +95,9 @@ export const TechnologyMobileList: React.FC<TechnologyMobileListProps> = ({
                   </div>
 
                   {cat.metrics && (
-                    <div className="mt-4 pt-3 border-t border-white/[0.05] flex items-center justify-between text-[11px] font-mono-tech">
+                    <div className="mt-4 pt-3 border-t border-black/[0.06] dark:border-white/[0.05] flex items-center justify-between text-[11px] font-mono-tech">
                       <span className="text-neutral-500">{cat.metrics.label}:</span>
-                      <span className="text-[#00F0FF] flex items-center gap-1">
+                      <span className="text-[#FF4500] font-bold flex items-center gap-1">
                         <Sparkles className="w-3 h-3" />
                         {cat.metrics.value}
                       </span>

@@ -10,17 +10,17 @@ export const FeaturedWork: React.FC = () => {
   return (
     <section
       id="work"
-      className="relative py-28 sm:py-36 border-t border-white/[0.06] bg-[#070A0F] overflow-hidden"
+      className="relative py-28 sm:py-36 border-t border-black/[0.06] dark:border-white/[0.06] bg-white dark:bg-[#070A0F] overflow-hidden transition-colors"
     >
       {/* Background subtle radial lighting */}
-      <div className="absolute top-1/2 left-1/3 w-96 h-96 bg-[#00F0FF]/[0.025] rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 w-96 h-96 bg-[#FF4500]/[0.03] rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col gap-4 mb-12 sm:mb-16">
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF]" />
-            <span className="text-xs font-mono-tech text-[#00F0FF] uppercase tracking-widest font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FF4500]" />
+            <span className="text-xs font-mono-tech text-[#FF4500] uppercase tracking-widest font-semibold">
               03 // SELECTED WORK
             </span>
           </div>
@@ -31,7 +31,7 @@ export const FeaturedWork: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-tight"
             >
               Selected Work
             </motion.h2>
@@ -41,7 +41,7 @@ export const FeaturedWork: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="text-sm sm:text-base text-neutral-400 max-w-md font-normal leading-relaxed"
+              className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-md font-normal leading-relaxed"
             >
               A look at what we've built. Production-grade platforms engineered for resilience and intelligent execution.
             </motion.p>
