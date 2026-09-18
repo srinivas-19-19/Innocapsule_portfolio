@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 46" width="108" height="46" fill="none">
+  <defs>
+    <linearGradient id="favBlue" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B1A54" />
+      <stop offset="50%" stop-color="#103385" />
+      <stop offset="100%" stop-color="#1852B8" />
+    </linearGradient>
+    <linearGradient id="favCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="60%" stop-color="#00D0DF" />
+      <stop offset="100%" stop-color="#009BAA" />
+    </linearGradient>
+    <linearGradient id="favArrow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#164BA8" />
+      <stop offset="100%" stop-color="#0E327D" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Half: Solid Cobalt Blue Capsule Cap -->
+  <path d="M 53,2 L 23,2 A 21,21 0 0,0 23,44 L 53,44 Z" fill="url(#favBlue)" />
+
+  <!-- Curved Gloss / Reflection Highlight on Top-Left Rim -->
+  <path d="M 12,16 C 15,9 22,6 34,6" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" opacity="0.95" />
+
+  <!-- Right Half: Cyan/Teal Circuit Frame -->
+  <path d="M 53,3.2 L 83,3.2 A 19.8,19.8 0 0,1 83,42.8 L 53,42.8" stroke="url(#favCyan)" stroke-width="2.4" fill="none" stroke-linecap="square" />
+
+  <!-- Circuit Traces & Nodes -->
+  <path d="M 53,11 L 78,11 L 84,7" stroke="url(#favCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="87.5" cy="7" r="2.2" stroke="url(#favCyan)" stroke-width="1.4" fill="#06070B" />
+
+  <path d="M 53,18 L 65,18 L 70,14" stroke="url(#favCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="73" cy="14" r="2" stroke="url(#favCyan)" stroke-width="1.4" fill="#06070B" />
+
+  <!-- Center Play/Arrow Triangle -->
+  <polygon points="78.5,17 87.5,23 78.5,29" fill="url(#favArrow)" stroke="url(#favCyan)" stroke-width="0.9" stroke-linejoin="round" />
+
+  <path d="M 53,28 L 65,28 L 70,32" stroke="url(#favCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="73" cy="32" r="2" stroke="url(#favCyan)" stroke-width="1.4" fill="#06070B" />
+
+  <path d="M 53,35 L 78,35 L 84,39" stroke="url(#favCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="87.5" cy="39" r="2.2" stroke="url(#favCyan)" stroke-width="1.4" fill="#06070B" />
+</svg>
