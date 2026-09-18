@@ -7,7 +7,6 @@ import {
   FolderGit2,
   Users,
   Mail,
-  ArrowRight,
 } from 'lucide-react'
 import { BrandMark } from '../ui/BrandMark'
 import { ThemeToggle } from '../ui/ThemeToggle'
@@ -82,21 +81,23 @@ export const Navbar: React.FC<NavbarProps> = ({
         }`}
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Brand Logo */}
-          <a
-            href="#hero"
-            onClick={(e) => {
-              if (currentView === 'developers' && onSelectView) {
-                e.preventDefault()
-                onSelectView('home')
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }
-            }}
-            className="flex items-center group focus:outline-none rounded-lg py-1 select-none"
-            aria-label="Innocapsule Home"
-          >
-            <BrandMark size={28} withText={true} />
-          </a>
+          {/* Brand Logo (Left) */}
+          <div className="flex-1 flex items-center justify-start">
+            <a
+              href="#hero"
+              onClick={(e) => {
+                if (currentView === 'developers' && onSelectView) {
+                  e.preventDefault()
+                  onSelectView('home')
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }
+              }}
+              className="flex items-center group focus:outline-none rounded-lg py-1 select-none"
+              aria-label="Innocapsule Home"
+            >
+              <BrandMark size={28} withText={true} />
+            </a>
+          </div>
 
           {/* Center Floating Pill Navigation */}
           <nav className="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/85 dark:bg-[#121620]/80 border border-black/[0.08] dark:border-white/[0.1] shadow-sm backdrop-blur-md">
@@ -125,24 +126,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Right Action CTA & Theme Toggle */}
-          <div className="hidden md:flex items-center gap-3">
-            {/* Theme Toggle Button (Light/Dark Mode) */}
+          {/* Right Action: Night Theme Toggle */}
+          <div className="flex-1 hidden md:flex items-center justify-end">
             <ThemeToggle size="md" />
-
-            {/* Hire Developer Button */}
-            <button
-              onClick={() => {
-                if (onSelectView) {
-                  onSelectView('developers')
-                  window.scrollTo({ top: 0, behavior: 'smooth' })
-                }
-              }}
-              className="px-4 py-2 rounded-full bg-[#1E293B] hover:bg-[#0F172A] dark:bg-white dark:text-[#111827] dark:hover:bg-neutral-200 text-white text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
-            >
-              <span>Hire Developer</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
           </div>
 
           {/* Mobile Right Controls: Theme Toggle & Hamburger */}
