@@ -2,13 +2,14 @@ import React, { useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import type { TeamMember } from '../../data/team'
 import { BrandMark } from '../ui/BrandMark'
-import { Wifi, Sparkles, ShieldCheck } from 'lucide-react'
+import { Wifi, Sparkles, ShieldCheck, ArrowRight } from 'lucide-react'
 
 interface Card3DProps {
   member: TeamMember
+  onOpenDeveloper?: (id: 'founder' | 'co-founder') => void
 }
 
-export const Card3D: React.FC<Card3DProps> = ({ member }) => {
+export const Card3D: React.FC<Card3DProps> = ({ member, onOpenDeveloper }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isDragging, setIsDragging] = useState(false)
 
@@ -37,8 +38,8 @@ export const Card3D: React.FC<Card3DProps> = ({ member }) => {
     >
       {/* Top Anchor Pin for Lanyard Cord */}
       <div className="absolute top-0 z-20 flex flex-col items-center">
-        <div className="w-5 h-5 rounded-full bg-[#101726] border-2 border-white/20 shadow-[0_0_12px_rgba(0,240,255,0.4)] flex items-center justify-center">
-          <div className="w-2 h-2 rounded-full bg-[#00F0FF]" />
+        <div className="w-5 h-5 rounded-full bg-[#101726] border-2 border-white/20 shadow-[0_0_12px_rgba(255,69,0,0.4)] flex items-center justify-center">
+          <div className="w-2 h-2 rounded-full bg-[#FF4500]" />
         </div>
       </div>
 
@@ -52,7 +53,7 @@ export const Card3D: React.FC<Card3DProps> = ({ member }) => {
           y1="0"
           x2="150"
           y2="55"
-          stroke="rgba(0, 240, 255, 0.45)"
+          stroke="rgba(255, 69, 0, 0.55)"
           strokeWidth="3"
           strokeDasharray="4 3"
           strokeLinecap="round"
@@ -92,9 +93,9 @@ export const Card3D: React.FC<Card3DProps> = ({ member }) => {
         }}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className={`relative w-[300px] sm:w-[320px] rounded-2xl bg-gradient-to-b from-[#101726]/95 via-[#0B101D]/95 to-[#06080F]/95 border border-white/15 p-6 backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.7)] cursor-grab active:cursor-grabbing transition-shadow duration-300 mt-12 overflow-hidden ${
+        className={`relative w-[300px] sm:w-[320px] rounded-2xl bg-gradient-to-b from-[#141A24]/95 via-[#0F131A]/95 to-[#090B0E]/95 border border-white/15 p-6 backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.6)] cursor-grab active:cursor-grabbing transition-shadow duration-300 mt-12 overflow-hidden ${
           isDragging
-            ? 'shadow-[0_30px_70px_rgba(0,240,255,0.25)] border-[#00F0FF]/40 ring-1 ring-[#00F0FF]/30'
+            ? 'shadow-[0_30px_70px_rgba(255,69,0,0.3)] border-[#FF4500]/50 ring-1 ring-[#FF4500]/40'
             : 'hover:border-white/25'
         }`}
       >
@@ -103,7 +104,7 @@ export const Card3D: React.FC<Card3DProps> = ({ member }) => {
           className="absolute -inset-full pointer-events-none opacity-40 mix-blend-overlay z-30"
           style={{
             background:
-              'linear-gradient(115deg, transparent 25%, rgba(0,240,255,0.3) 45%, rgba(255,255,255,0.6) 50%, rgba(0,240,255,0.3) 55%, transparent 75%)',
+              'linear-gradient(115deg, transparent 25%, rgba(255,69,0,0.25) 45%, rgba(255,255,255,0.6) 50%, rgba(255,69,0,0.25) 55%, transparent 75%)',
             x: sheenX,
             y: sheenY,
           }}
@@ -116,17 +117,17 @@ export const Card3D: React.FC<Card3DProps> = ({ member }) => {
 
         {/* Header Row: Logo & Security Hardware */}
         <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-4">
-          <BrandMark size={22} withText={true} animate={false} />
+          <BrandMark size={20} withText={true} animate={false} />
 
           {/* Holographic Security Chip & Contactless Icon */}
           <div className="flex items-center gap-2">
-            <Wifi className="w-3.5 h-3.5 text-[#00F0FF] rotate-90 opacity-80" />
+            <Wifi className="w-3.5 h-3.5 text-[#FF4500] rotate-90 opacity-90" />
             {/* EMV Microchip */}
-            <div className="w-7 h-5 rounded bg-gradient-to-tr from-amber-600/80 via-amber-400 to-amber-300/90 border border-amber-300/40 relative overflow-hidden shadow-sm flex items-center justify-center">
-              <div className="w-full h-[1px] bg-amber-800/60 absolute top-1.5" />
-              <div className="w-full h-[1px] bg-amber-800/60 absolute bottom-1.5" />
-              <div className="h-full w-[1px] bg-amber-800/60 absolute left-2" />
-              <div className="h-full w-[1px] bg-amber-800/60 absolute right-2" />
+            <div className="w-7 h-5 rounded bg-gradient-to-tr from-amber-600/90 via-amber-400 to-amber-300 border border-amber-300/50 relative overflow-hidden shadow-sm flex items-center justify-center">
+              <div className="w-full h-[1px] bg-amber-900/60 absolute top-1.5" />
+              <div className="w-full h-[1px] bg-amber-900/60 absolute bottom-1.5" />
+              <div className="h-full w-[1px] bg-amber-900/60 absolute left-2" />
+              <div className="h-full w-[1px] bg-amber-900/60 absolute right-2" />
             </div>
           </div>
         </div>
@@ -141,11 +142,11 @@ export const Card3D: React.FC<Card3DProps> = ({ member }) => {
           />
 
           {/* Gradient Vignette overlay on photo bottom */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B101D] via-transparent to-transparent opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0F131A] via-transparent to-transparent opacity-85" />
 
           {/* Active Security Hologram Stamp */}
-          <div className="absolute top-2.5 right-2.5 flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#06070B]/80 border border-[#00F0FF]/30 backdrop-blur-md text-[9px] font-mono-tech text-[#00F0FF]">
-            <ShieldCheck className="w-3 h-3 text-[#00F0FF]" />
+          <div className="absolute top-2.5 right-2.5 flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#06070B]/80 border border-[#FF4500]/40 backdrop-blur-md text-[9px] font-mono-tech text-[#FF4500]">
+            <ShieldCheck className="w-3 h-3 text-[#FF4500]" />
             <span>VERIFIED</span>
           </div>
 
@@ -156,10 +157,10 @@ export const Card3D: React.FC<Card3DProps> = ({ member }) => {
         </div>
 
         {/* Member Details */}
-        <div className="flex flex-col gap-2 mb-4">
+        <div className="flex flex-col gap-2 mb-3">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-mono-tech text-[#00F0FF] uppercase tracking-widest font-semibold flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] animate-pulse" />
+            <span className="text-[11px] font-mono-tech text-[#FF4500] uppercase tracking-widest font-semibold flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF4500] animate-pulse" />
               {member.role}
             </span>
             <span className="text-[10px] font-mono-tech text-neutral-500">
@@ -188,6 +189,18 @@ export const Card3D: React.FC<Card3DProps> = ({ member }) => {
           ))}
         </div>
 
+        {/* Direct Link to Developer Showcase */}
+        {onOpenDeveloper && (
+          <button
+            onClick={() => onOpenDeveloper(member.id as 'founder' | 'co-founder')}
+            type="button"
+            className="w-full py-2 px-3 rounded-xl bg-[#FF4500]/15 hover:bg-[#FF4500] text-[#FF4500] hover:text-white border border-[#FF4500]/30 hover:border-transparent text-xs font-semibold flex items-center justify-center gap-1.5 transition-all mb-3 cursor-pointer"
+          >
+            <span>Open Developer Profile</span>
+            <ArrowRight className="w-3 h-3" />
+          </button>
+        )}
+
         {/* Bottom Barcode Security Foil */}
         <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between">
           <div className="flex items-center gap-1.5">
@@ -209,7 +222,7 @@ export const Card3D: React.FC<Card3DProps> = ({ member }) => {
             </span>
           </div>
 
-          <div className="text-[9px] font-mono-tech text-[#00F0FF]/80 flex items-center gap-1">
+          <div className="text-[9px] font-mono-tech text-[#FF4500]/90 flex items-center gap-1">
             <Sparkles className="w-2.5 h-2.5" />
             <span>DRAG TO TILT</span>
           </div>

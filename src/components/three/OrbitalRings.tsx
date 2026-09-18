@@ -53,9 +53,9 @@ export const OrbitalRings: React.FC<OrbitalRingsProps> = ({
         <mesh>
           <torusGeometry args={[2.15, 0.009, 16, 120]} />
           <meshBasicMaterial
-            color="#00F0FF"
+            color="#FF4500"
             transparent={true}
-            opacity={0.32}
+            opacity={0.38}
           />
         </mesh>
 
@@ -71,7 +71,7 @@ export const OrbitalRings: React.FC<OrbitalRingsProps> = ({
         {/* Traveling Data Node 1 */}
         <mesh ref={node1Ref}>
           <sphereGeometry args={[0.04, 12, 12]} />
-          <meshBasicMaterial color="#00F0FF" />
+          <meshBasicMaterial color="#FF4500" />
         </mesh>
       </group>
 
@@ -80,9 +80,9 @@ export const OrbitalRings: React.FC<OrbitalRingsProps> = ({
         <mesh>
           <torusGeometry args={[2.45, 0.008, 16, 140]} />
           <meshBasicMaterial
-            color="#38bdf8"
+            color="#fb923c"
             transparent={true}
-            opacity={0.24}
+            opacity={0.28}
           />
         </mesh>
 

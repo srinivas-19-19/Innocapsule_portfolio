@@ -29,7 +29,7 @@ export const HeroCTA: React.FC = () => {
         className="w-full sm:w-auto text-sm sm:text-base justify-center"
       >
         <span className="flex items-center justify-center gap-2">
-          <Terminal className="w-4 h-4 text-neutral-400 group-hover:text-[#00F0FF] transition-colors" />
+          <Terminal className="w-4 h-4 text-neutral-400 group-hover:text-[#FF4500] transition-colors" />
           {siteConfig.cta.secondary}
         </span>
       </Button>

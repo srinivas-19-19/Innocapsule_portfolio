@@ -27,7 +27,7 @@ export const CapabilityRow: React.FC<CapabilityRowProps> = ({
     >
       {/* Active Left Indicator Accent Line (Desktop) */}
       <div
-        className={`absolute left-0 top-0 bottom-0 w-[2px] bg-[#00F0FF] transition-opacity duration-300 hidden lg:block ${
+        className={`absolute left-0 top-0 bottom-0 w-[2px] bg-[#FF4500] transition-opacity duration-300 hidden lg:block ${
           isActive ? 'opacity-100' : 'opacity-0'
         }`}
       />
@@ -37,19 +37,21 @@ export const CapabilityRow: React.FC<CapabilityRowProps> = ({
         type="button"
         onClick={onToggleMobile}
         aria-expanded={isExpandedMobile}
-        className="w-full text-left py-6 sm:py-7 px-4 sm:px-6 flex items-center justify-between gap-4 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00F0FF]"
+        className="w-full text-left py-6 sm:py-7 px-4 sm:px-6 flex items-center justify-between gap-4 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF4500]"
       >
         <div className="flex items-center gap-4 sm:gap-8">
           <span
             className={`text-sm sm:text-base font-mono-tech font-bold transition-colors duration-300 ${
-              isActive ? 'text-[#00F0FF]' : 'text-neutral-500 group-hover:text-neutral-300'
+              isActive ? 'text-[#FF4500]' : 'text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-300'
             }`}
           >
             {capability.number}
           </span>
           <h3
             className={`text-lg sm:text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${
-              isActive ? 'text-white' : 'text-neutral-300 group-hover:text-white'
+              isActive
+                ? 'text-neutral-900 dark:text-white'
+                : 'text-neutral-700 dark:text-neutral-300 group-hover:text-black dark:group-hover:text-white'
             }`}
           >
             {capability.title}
@@ -60,7 +62,7 @@ export const CapabilityRow: React.FC<CapabilityRowProps> = ({
         <div className="hidden lg:flex items-center gap-3">
           <span
             className={`text-xs font-mono-tech transition-opacity duration-300 ${
-              isActive ? 'opacity-100 text-[#00F0FF]' : 'opacity-0 text-neutral-500'
+              isActive ? 'opacity-100 text-[#FF4500]' : 'opacity-0 text-neutral-500'
             }`}
           >
             EXPLORE SPEC
@@ -68,8 +70,8 @@ export const CapabilityRow: React.FC<CapabilityRowProps> = ({
           <div
             className={`p-2 rounded-full border transition-all duration-300 ${
               isActive
-                ? 'bg-[#00F0FF] text-[#06070B] border-[#00F0FF] translate-x-1'
-                : 'border-white/10 text-neutral-400 group-hover:border-white/20 group-hover:text-white'
+                ? 'bg-[#FF4500] text-white border-[#FF4500] translate-x-1 shadow-md shadow-[#FF4500]/25'
+                : 'border-black/10 dark:border-white/10 text-neutral-400 group-hover:border-black/20 dark:group-hover:border-white/20 group-hover:text-neutral-900 dark:group-hover:text-white'
             }`}
           >
             <ArrowUpRight className="w-4 h-4" />
@@ -77,10 +79,10 @@ export const CapabilityRow: React.FC<CapabilityRowProps> = ({
         </div>
 
         {/* Mobile Accordion Chevron */}
-        <div className="lg:hidden p-1.5 rounded-lg bg-white/[0.04] text-neutral-400">
+        <div className="lg:hidden p-1.5 rounded-lg bg-black/[0.04] dark:bg-white/[0.04] text-neutral-400">
           <ChevronDown
             className={`w-4 h-4 transition-transform duration-300 ${
-              isExpandedMobile ? 'rotate-180 text-[#00F0FF]' : ''
+              isExpandedMobile ? 'rotate-180 text-[#FF4500]' : ''
             }`}
           />
         </div>

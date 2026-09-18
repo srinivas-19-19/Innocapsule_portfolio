@@ -53,18 +53,18 @@ export const InnocapsuleCore: React.FC<InnocapsuleCoreProps> = ({
       <mesh ref={outerRef} castShadow receiveShadow>
         <icosahedronGeometry args={[1.42, 0]} />
         <meshPhysicalMaterial
-          color="#f0fdf4"
+          color="#fff7ed"
           transmission={0.94}
           roughness={0.06}
           metalness={0.08}
           ior={1.52}
           thickness={1.4}
           specularIntensity={1.4}
-          specularColor="#38bdf8"
+          specularColor="#fb923c"
           transparent={true}
           opacity={0.94}
           flatShading={true}
-          attenuationColor="#0284c7"
+          attenuationColor="#ea580c"
           attenuationDistance={1.8}
         />
       </mesh>
@@ -73,10 +73,10 @@ export const InnocapsuleCore: React.FC<InnocapsuleCoreProps> = ({
       <mesh ref={latticeRef}>
         <icosahedronGeometry args={[1.43, 0]} />
         <meshBasicMaterial
-          color="#00F0FF"
+          color="#FF4500"
           wireframe={true}
           transparent={true}
-          opacity={0.32}
+          opacity={0.36}
         />
       </mesh>
 
@@ -84,10 +84,10 @@ export const InnocapsuleCore: React.FC<InnocapsuleCoreProps> = ({
       <mesh>
         <dodecahedronGeometry args={[1.08, 0]} />
         <meshStandardMaterial
-          color="#00F0FF"
+          color="#FF8C00"
           wireframe={true}
           transparent={true}
-          opacity={0.25}
+          opacity={0.28}
           roughness={0.2}
           metalness={0.8}
         />
@@ -97,8 +97,8 @@ export const InnocapsuleCore: React.FC<InnocapsuleCoreProps> = ({
       <mesh ref={innerRef}>
         <octahedronGeometry args={[0.42, 0]} />
         <meshStandardMaterial
-          color="#00F0FF"
-          emissive="#00F0FF"
+          color="#FF4500"
+          emissive="#FF4500"
           emissiveIntensity={2.5}
           roughness={0.1}
           metalness={0.9}
@@ -123,11 +123,11 @@ export const InnocapsuleCore: React.FC<InnocapsuleCoreProps> = ({
       </mesh>
       <mesh position={[0, -1.42, 0]}>
         <sphereGeometry args={[0.035, 10, 10]} />
-        <meshBasicMaterial color="#00F0FF" />
+        <meshBasicMaterial color="#FF4500" />
       </mesh>
       <mesh position={[1.25, 0.45, 0.45]}>
         <sphereGeometry args={[0.035, 10, 10]} />
-        <meshBasicMaterial color="#00F0FF" />
+        <meshBasicMaterial color="#FF4500" />
       </mesh>
       <mesh position={[-1.25, -0.45, -0.45]}>
         <sphereGeometry args={[0.035, 10, 10]} />

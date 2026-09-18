@@ -39,22 +39,22 @@ export const SceneLighting: React.FC<SceneLightingProps> = ({ mouse }) => {
         color="#e0f2fe"
       />
 
-      {/* Cyan Accent Point Light (Interactive with cursor) */}
+      {/* Orange Accent Point Light (Interactive with cursor) */}
       <pointLight
         ref={accentLightRef}
         position={[3, 2, 4]}
-        intensity={3.0}
+        intensity={3.2}
         distance={10}
         decay={2}
-        color="#00F0FF"
+        color="#FF4500"
       />
 
-      {/* Under-glow Fill Light */}
+      {/* Under-glow Fill Light (Warm Amber) */}
       <pointLight
         position={[0, -3.5, 2]}
-        intensity={0.6}
+        intensity={0.8}
         distance={7}
-        color="#0284c7"
+        color="#FF8C00"
       />
     </>
   )

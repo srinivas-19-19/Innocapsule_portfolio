@@ -15,7 +15,7 @@ export const BrandMark: React.FC<BrandMarkProps> = ({
   animate = true,
 }) => {
   // Capsule aspect ratio: width is ~2.35 * height
-  const emblemWidth = Math.round(size * 2.35)
+  const emblemWidth = Math.round(size * 2.2)
 
   const Emblem = (
     <svg
@@ -28,24 +28,24 @@ export const BrandMark: React.FC<BrandMarkProps> = ({
       aria-hidden="true"
     >
       <defs>
-        {/* Left Capsule Deep Blue / Cobalt Gradient */}
-        <linearGradient id="brandBlueGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#0B1A54" />
-          <stop offset="50%" stopColor="#103385" />
-          <stop offset="100%" stopColor="#1852B8" />
+        {/* Left Capsule Deep Charcoal / Dark Slate Gradient */}
+        <linearGradient id="brandCharcoalGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#1E2430" />
+          <stop offset="50%" stopColor="#2D3748" />
+          <stop offset="100%" stopColor="#3E4C63" />
         </linearGradient>
 
-        {/* Right Capsule Cyan/Teal Gradient */}
-        <linearGradient id="brandCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00F0FF" />
-          <stop offset="60%" stopColor="#00D0DF" />
-          <stop offset="100%" stopColor="#009BAA" />
+        {/* Right Capsule Vibrant High-Tech Orange Gradient */}
+        <linearGradient id="brandOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FF6B35" />
+          <stop offset="50%" stopColor="#FF4500" />
+          <stop offset="100%" stopColor="#D83600" />
         </linearGradient>
 
         {/* Center Play Triangle Gradient */}
         <linearGradient id="brandArrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#164BA8" />
-          <stop offset="100%" stopColor="#0E327D" />
+          <stop offset="0%" stopColor="#FF5722" />
+          <stop offset="100%" stopColor="#E64A19" />
         </linearGradient>
 
         {/* Subtle Ambient Glow */}
@@ -59,12 +59,12 @@ export const BrandMark: React.FC<BrandMarkProps> = ({
       </defs>
 
       {/* Ambient subtle back-glow on right circuit half */}
-      <circle cx="80" cy="23" r="18" fill="#00F0FF" fillOpacity="0.08" />
+      <circle cx="80" cy="23" r="18" fill="#FF4500" fillOpacity="0.12" />
 
-      {/* LEFT HALF: Solid Cobalt Blue Capsule Cap */}
+      {/* LEFT HALF: Solid Charcoal Capsule Cap */}
       <path
         d="M 53,2 L 23,2 A 21,21 0 0,0 23,44 L 53,44 Z"
-        fill="url(#brandBlueGrad)"
+        fill="url(#brandCharcoalGrad)"
       />
 
       {/* Curved Gloss / Reflection Highlight on Top-Left Rim */}
@@ -73,13 +73,13 @@ export const BrandMark: React.FC<BrandMarkProps> = ({
         stroke="#FFFFFF"
         strokeWidth="2.4"
         strokeLinecap="round"
-        opacity="0.95"
+        opacity="0.85"
       />
 
-      {/* RIGHT HALF: Cyan/Teal Circuit Frame */}
+      {/* RIGHT HALF: Orange Circuit Frame */}
       <path
         d="M 53,3.2 L 83,3.2 A 19.8,19.8 0 0,1 83,42.8 L 53,42.8"
-        stroke="url(#brandCyanGrad)"
+        stroke="url(#brandOrangeGrad)"
         strokeWidth="2.4"
         fill="none"
         strokeLinecap="square"
@@ -89,7 +89,7 @@ export const BrandMark: React.FC<BrandMarkProps> = ({
       {/* Trace 1 (Top) */}
       <path
         d="M 53,11 L 78,11 L 84,7"
-        stroke="url(#brandCyanGrad)"
+        stroke="url(#brandOrangeGrad)"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -99,15 +99,15 @@ export const BrandMark: React.FC<BrandMarkProps> = ({
         cx="87.5"
         cy="7"
         r="2.2"
-        stroke="url(#brandCyanGrad)"
+        stroke="url(#brandOrangeGrad)"
         strokeWidth="1.4"
-        fill="#06070B"
+        fill="#111827"
       />
 
       {/* Trace 2 (Upper Mid) */}
       <path
         d="M 53,18 L 65,18 L 70,14"
-        stroke="url(#brandCyanGrad)"
+        stroke="url(#brandOrangeGrad)"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -117,28 +117,28 @@ export const BrandMark: React.FC<BrandMarkProps> = ({
         cx="73"
         cy="14"
         r="2"
-        stroke="url(#brandCyanGrad)"
+        stroke="url(#brandOrangeGrad)"
         strokeWidth="1.4"
-        fill="#06070B"
+        fill="#111827"
       />
 
       {/* Center Play/Arrow Triangle */}
       <motion.polygon
         points="78.5,17 87.5,23 78.5,29"
         fill="url(#brandArrowGrad)"
-        stroke="url(#brandCyanGrad)"
+        stroke="url(#brandOrangeGrad)"
         strokeWidth="0.9"
         strokeLinejoin="round"
         animate={
           animate
             ? {
-                strokeOpacity: [0.8, 1, 0.8],
-                scale: [1, 1.04, 1],
+                strokeOpacity: [0.85, 1, 0.85],
+                scale: [1, 1.05, 1],
               }
             : undefined
         }
         transition={{
-          duration: 3,
+          duration: 2.6,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
@@ -147,7 +147,7 @@ export const BrandMark: React.FC<BrandMarkProps> = ({
       {/* Trace 3 (Lower Mid) */}
       <path
         d="M 53,28 L 65,28 L 70,32"
-        stroke="url(#brandCyanGrad)"
+        stroke="url(#brandOrangeGrad)"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -157,15 +157,15 @@ export const BrandMark: React.FC<BrandMarkProps> = ({
         cx="73"
         cy="32"
         r="2"
-        stroke="url(#brandCyanGrad)"
+        stroke="url(#brandOrangeGrad)"
         strokeWidth="1.4"
-        fill="#06070B"
+        fill="#111827"
       />
 
       {/* Trace 4 (Bottom) */}
       <path
         d="M 53,35 L 78,35 L 84,39"
-        stroke="url(#brandCyanGrad)"
+        stroke="url(#brandOrangeGrad)"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -175,9 +175,9 @@ export const BrandMark: React.FC<BrandMarkProps> = ({
         cx="87.5"
         cy="39"
         r="2.2"
-        stroke="url(#brandCyanGrad)"
+        stroke="url(#brandOrangeGrad)"
         strokeWidth="1.4"
-        fill="#06070B"
+        fill="#111827"
       />
     </svg>
   )
@@ -190,26 +190,17 @@ export const BrandMark: React.FC<BrandMarkProps> = ({
     )
   }
 
-  // Calculate typography scales proportional to size
-  const innoFontSize = Math.round(size * 0.65)
-  const capsuleFontSize = Math.round(size * 0.42)
+  const fontSize = Math.round(size * 0.76)
 
   return (
-    <div className={`relative inline-flex items-center gap-2.5 sm:gap-3 select-none ${className}`}>
+    <div className={`relative inline-flex items-center gap-2 select-none ${className}`}>
       {Emblem}
-      <div className="flex flex-col leading-[0.9] text-left">
-        <span
-          className="font-extrabold text-white tracking-[0.04em] font-sans"
-          style={{ fontSize: `${innoFontSize}px` }}
-        >
-          INNO
-        </span>
-        <span
-          className="font-normal text-[#94A3B8] tracking-[0.18em] font-sans mt-[2px]"
-          style={{ fontSize: `${capsuleFontSize}px` }}
-        >
-          CAPSULE
-        </span>
+      <div
+        className="font-bold tracking-tight font-sans flex items-baseline leading-none"
+        style={{ fontSize: `${fontSize}px` }}
+      >
+        <span className="text-[#111827] dark:text-white transition-colors">Inno</span>
+        <span className="text-[#FF4500]">Capsule</span>
       </div>
     </div>
   )

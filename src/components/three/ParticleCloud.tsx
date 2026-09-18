@@ -18,8 +18,8 @@ export const ParticleCloud: React.FC<ParticleCloudProps> = ({
     const pos = new Float32Array(count * 3)
     const cols = new Float32Array(count * 3)
 
-    const color1 = new THREE.Color('#00F0FF')
-    const color2 = new THREE.Color('#94a3b8')
+    const color1 = new THREE.Color('#FF4500')
+    const color2 = new THREE.Color('#fb923c')
     const color3 = new THREE.Color('#ffffff')
 
     // Pure deterministic hash function

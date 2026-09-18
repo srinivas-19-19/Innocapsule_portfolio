@@ -24,21 +24,21 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'group relative inline-flex items-center justify-center font-medium transition-all duration-300 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00F0FF]/50'
+    'group relative inline-flex items-center justify-center font-medium transition-all duration-300 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500]/50'
 
   const sizeStyles = {
-    sm: 'text-xs px-3.5 py-1.5 rounded-md gap-1.5',
-    md: 'text-sm px-5 py-2.5 rounded-lg gap-2',
-    lg: 'text-base px-6 py-3.5 rounded-lg gap-2.5',
+    sm: 'text-xs px-3.5 py-1.5 rounded-full gap-1.5',
+    md: 'text-sm px-5 py-2.5 rounded-full gap-2',
+    lg: 'text-base px-6 py-3.5 rounded-full gap-2.5',
   }
 
   const variantStyles = {
     primary:
-      'bg-[#00F0FF] text-[#06070B] font-semibold hover:bg-[#38F4FF] shadow-[0_0_20px_rgba(0,240,255,0.22)] hover:shadow-[0_0_28px_rgba(0,240,255,0.4)] border border-[#00F0FF]',
+      'bg-[#FF4500] text-white font-semibold hover:bg-[#E03E00] shadow-[0_0_20px_rgba(255,69,0,0.28)] hover:shadow-[0_0_28px_rgba(255,69,0,0.45)] border border-[#FF4500]',
     secondary:
-      'bg-[#101520]/80 text-[#F3F4F6] border border-white/10 hover:border-[#00F0FF]/40 hover:bg-[#151D2C] hover:text-[#FFFFFF] shadow-sm',
+      'bg-black/[0.04] dark:bg-[#121620] text-neutral-800 dark:text-[#F3F4F6] border border-black/[0.08] dark:border-white/10 hover:border-[#FF4500]/40 hover:bg-black/[0.08] dark:hover:bg-[#181F2C] shadow-sm',
     ghost:
-      'bg-transparent text-[#94A3B8] hover:text-[#F3F4F6] hover:bg-white/5 border border-transparent',
+      'bg-transparent text-neutral-600 dark:text-[#94A3B8] hover:text-black dark:hover:text-[#F3F4F6] hover:bg-black/[0.04] dark:hover:bg-white/5 border border-transparent',
   }
 
   const content = (
