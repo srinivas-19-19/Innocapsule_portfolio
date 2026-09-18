@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ArrowRight, Home, Sparkles, FolderGit2, Users, Mail } from 'lucide-react'
+import { X, ArrowRight, Home, Info, Sparkles, FolderGit2, Users, Code2, Mail } from 'lucide-react'
 import { BrandMark } from '../ui/BrandMark'
 import { ThemeToggle } from '../ui/ThemeToggle'
 
@@ -19,9 +19,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
 }) => {
   const navItems = [
     { label: 'Home', href: '#hero', icon: Home, view: 'home' as const },
+    { label: 'About', href: '#about', icon: Info, view: 'home' as const },
     { label: 'Services', href: '#capabilities', icon: Sparkles, view: 'home' as const },
     { label: 'Projects', href: '#work', icon: FolderGit2, view: 'home' as const },
-    { label: 'Developers', href: '#developers', icon: Users, view: 'developers' as const },
+    { label: 'Team', href: '#team', icon: Users, view: 'home' as const },
+    { label: 'Developers', href: '#developers', icon: Code2, view: 'developers' as const },
     { label: 'Contact', href: '#contact', icon: Mail, view: 'home' as const },
   ]
 

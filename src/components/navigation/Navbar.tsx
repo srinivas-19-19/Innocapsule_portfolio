@@ -3,9 +3,11 @@ import { motion } from 'framer-motion'
 import {
   Menu,
   Home,
+  Info,
   Sparkles,
   FolderGit2,
   Users,
+  Code2,
   Mail,
 } from 'lucide-react'
 import { BrandMark } from '../ui/BrandMark'
@@ -34,9 +36,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navItems = [
     { label: 'Home', href: '#hero', icon: Home, view: 'home' as const },
+    { label: 'About', href: '#about', icon: Info, view: 'home' as const },
     { label: 'Services', href: '#capabilities', icon: Sparkles, view: 'home' as const },
     { label: 'Projects', href: '#work', icon: FolderGit2, view: 'home' as const },
-    { label: 'Developers', href: '#developers', icon: Users, view: 'developers' as const },
+    { label: 'Team', href: '#team', icon: Users, view: 'home' as const },
+    { label: 'Developers', href: '#developers', icon: Code2, view: 'developers' as const },
     { label: 'Contact', href: '#contact', icon: Mail, view: 'home' as const },
   ]
 
@@ -100,7 +104,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Center Floating Pill Navigation */}
-          <nav className="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/85 dark:bg-[#121620]/80 border border-black/[0.08] dark:border-white/[0.1] shadow-sm backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-0.5 lg:gap-1 px-2 lg:px-3 py-1.5 rounded-full bg-white/85 dark:bg-[#121620]/80 border border-black/[0.08] dark:border-white/[0.1] shadow-sm backdrop-blur-md">
             {navItems.map((item) => {
               const Icon = item.icon
               const isDevelopersActive = item.label === 'Developers' && currentView === 'developers'
@@ -111,7 +115,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item)}
-                  className={`relative px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-all duration-200 rounded-full flex items-center gap-1.5 focus:outline-none ${
+                  className={`relative px-2.5 lg:px-3 py-1.5 text-xs font-semibold tracking-wide transition-all duration-200 rounded-full flex items-center gap-1 lg:gap-1.5 focus:outline-none ${
                     isDevelopersActive
                       ? 'bg-[#FF4500] text-white shadow-[0_2px_12px_rgba(255,69,0,0.4)]'
                       : isHomeActive

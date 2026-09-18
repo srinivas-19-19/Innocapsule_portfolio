@@ -2,7 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { teamMembers } from '../../data/team'
 import { Card3D } from './Card3D'
-import { Move } from 'lucide-react'
 
 interface LeadershipProps {
   onOpenDeveloper?: (id: 'founder' | 'co-founder') => void
@@ -23,7 +22,7 @@ export const Leadership: React.FC<LeadershipProps> = ({ onOpenDeveloper }) => {
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FF4500]" />
             <span className="text-xs font-mono-tech text-[#FF4500] uppercase tracking-widest font-semibold">
-              07 // LEADERSHIP CORE
+              // 04 // LEADERSHIP CORE
             </span>
           </div>
 
@@ -44,14 +43,14 @@ export const Leadership: React.FC<LeadershipProps> = ({ onOpenDeveloper }) => {
             </div>
 
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.08] text-xs font-mono-tech text-[#FF4500]">
-              <Move className="w-3.5 h-3.5 animate-pulse" />
-              <span>INTERACTIVE // DRAG BADGES FREELY</span>
+              <span className="w-2 h-2 rounded-full bg-[#FF4500] animate-pulse" />
+              <span>FOUNDING CORE // 02 VERIFIED ARCHITECTS</span>
             </div>
           </motion.div>
         </div>
 
-        {/* 3D Interactive ID Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center justify-center max-w-5xl mx-auto">
+        {/* Leadership Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center justify-center max-w-4xl mx-auto">
           {teamMembers.map((member) => (
             <Card3D
               key={member.id}

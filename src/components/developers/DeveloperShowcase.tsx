@@ -11,7 +11,6 @@ import {
   Globe2,
   Download,
   ArrowRight,
-  Mouse,
   ArrowLeft,
 } from 'lucide-react'
 import { developersData, type DeveloperProfile } from '../../data/developers'
@@ -34,6 +33,9 @@ const TwitterIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
   </svg>
 )
 
+const baseUrl = import.meta.env.BASE_URL || '/'
+const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`
+
 interface DeveloperShowcaseProps {
   initialDeveloper?: 'founder' | 'co-founder'
   onBackToHome?: () => void
@@ -44,12 +46,9 @@ export const DeveloperShowcase: React.FC<DeveloperShowcaseProps> = ({
   onBackToHome,
 }) => {
   const [selectedId, setSelectedId] = useState<'founder' | 'co-founder'>(initialDeveloper)
-  const [activeSubTab, setActiveSubTab] = useState('About')
   const [contactModalOpen, setContactModalOpen] = useState(false)
 
   const dev: DeveloperProfile = developersData[selectedId]
-
-  const subNavItems = ['About', 'Skills', 'Experience', 'Projects', 'Services', 'Contact']
 
   return (
     <div className="relative w-full min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
@@ -86,7 +85,7 @@ export const DeveloperShowcase: React.FC<DeveloperShowcaseProps> = ({
             )}
             <span className="relative z-10 flex items-center gap-1.5">
               <User className="w-3.5 h-3.5" />
-              Nand Kishore (Me)
+              Srinivas Gorkal
             </span>
           </button>
 
@@ -108,7 +107,7 @@ export const DeveloperShowcase: React.FC<DeveloperShowcaseProps> = ({
             )}
             <span className="relative z-10 flex items-center gap-1.5">
               <User className="w-3.5 h-3.5" />
-              My Friend (Co-Founder)
+              Manikanta Reddy Kuruva
             </span>
           </button>
         </div>
@@ -132,7 +131,7 @@ export const DeveloperShowcase: React.FC<DeveloperShowcaseProps> = ({
             {/* Giant Background Typography Watermark */}
             <div className="absolute inset-x-0 top-10 flex flex-col items-center justify-center select-none pointer-events-none opacity-15 dark:opacity-10 z-0">
               <span className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tight text-neutral-800 dark:text-white">
-                I'M BORN TO
+                BUILD THE
               </span>
               <span
                 className="text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] font-black tracking-widest text-transparent"
@@ -140,7 +139,7 @@ export const DeveloperShowcase: React.FC<DeveloperShowcaseProps> = ({
                   WebkitTextStroke: '2px #FF4500',
                 }}
               >
-                INNOVATE
+                FUTURE
               </span>
             </div>
 
@@ -289,21 +288,14 @@ export const DeveloperShowcase: React.FC<DeveloperShowcaseProps> = ({
 
                 {/* Call-to-action buttons */}
                 <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <button
-                    onClick={() => setContactModalOpen(true)}
-                    type="button"
-                    className="px-5 py-2 rounded-full bg-[#FF4500] hover:bg-[#E03E00] text-white text-xs font-bold shadow-[0_2px_12px_rgba(255,69,0,0.35)] hover:shadow-[0_4px_20px_rgba(255,69,0,0.5)] transition-all flex items-center gap-2 cursor-pointer"
-                  >
-                    Hire Me <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-
                   <a
-                    href={dev.socials.website}
+                    href={dev.resumeUrl || `${cleanBase}Srinivas_Gorkal_Resume.pdf`}
+                    download="Srinivas_Gorkal_Resume.pdf"
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-2 rounded-full bg-black/[0.04] dark:bg-white/[0.06] hover:bg-black/[0.08] dark:hover:bg-white/[0.12] text-neutral-800 dark:text-neutral-200 border border-black/[0.08] dark:border-white/[0.12] text-xs font-semibold transition-all flex items-center gap-2"
+                    className="px-5 py-2.5 rounded-full bg-[#FF4500] hover:bg-[#E03E00] text-white text-xs font-bold shadow-[0_2px_12px_rgba(255,69,0,0.35)] hover:shadow-[0_4px_20px_rgba(255,69,0,0.5)] transition-all flex items-center gap-2 cursor-pointer"
                   >
-                    Download CV <Download className="w-3.5 h-3.5 text-neutral-500" />
+                    Download CV <Download className="w-3.5 h-3.5 text-white" />
                   </a>
                 </div>
 
@@ -350,42 +342,7 @@ export const DeveloperShowcase: React.FC<DeveloperShowcaseProps> = ({
             </div>
           </div>
 
-          {/* ========================================================= */}
-          {/* 3. SUB-NAVIGATION PILL BAR & SCROLL INDICATOR             */}
-          {/* ========================================================= */}
-          <div className="flex items-center justify-between mb-8 px-2">
-            <div className="inline-flex p-1 rounded-full bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.06] dark:border-white/[0.08] backdrop-blur-md overflow-x-auto max-w-full">
-              {subNavItems.map((tab) => {
-                const isActive = activeSubTab === tab
-                return (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveSubTab(tab)}
-                    className={`relative px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${
-                      isActive
-                        ? 'text-white'
-                        : 'text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white'
-                    }`}
-                  >
-                    {isActive && (
-                      <motion.div
-                        layoutId="subTabPill"
-                        className="absolute inset-0 rounded-full bg-[#111827] dark:bg-white/20 shadow-sm"
-                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                      />
-                    )}
-                    <span className="relative z-10">{tab}</span>
-                  </button>
-                )
-              })}
-            </div>
 
-            {/* Scroll Down Mouse Graphic */}
-            <div className="hidden sm:flex items-center gap-2 text-xs font-medium text-neutral-400 dark:text-neutral-500">
-              <span>Scroll Down</span>
-              <Mouse className="w-4 h-4 animate-bounce text-neutral-400" />
-            </div>
-          </div>
 
           {/* ========================================================= */}
           {/* 4. BENTO GRID DASHBOARD CARDS                             */}
@@ -523,12 +480,17 @@ export const DeveloperShowcase: React.FC<DeveloperShowcaseProps> = ({
                       className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-black/[0.02] dark:hover:bg-white/[0.03] transition-colors group cursor-pointer"
                     >
                       {/* Project Thumbnail */}
-                      <div className="w-16 h-16 rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800 shrink-0 border border-black/[0.08] dark:border-white/[0.1]">
+                      <div className="w-16 h-16 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-800 shrink-0 border border-black/[0.08] dark:border-white/[0.1] relative flex items-center justify-center">
                         <img
                           src={project.image}
                           alt={project.title}
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement
+                            target.style.display = 'none'
+                          }}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                         />
+                        <FolderGit2 className="w-6 h-6 text-[#FF4500] absolute pointer-events-none -z-0 opacity-40" />
                       </div>
 
                       <div className="flex-1 min-w-0">

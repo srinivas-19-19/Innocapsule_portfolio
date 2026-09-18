@@ -42,8 +42,10 @@ export const siteConfig: SiteConfig = {
     'Innocapsule is a technology startup building modern digital products, intelligent systems, and scalable software experiences for the next generation of web and autonomous interfaces.',
   navItems: [
     { label: 'Home', href: '#hero' },
+    { label: 'About', href: '#about' },
     { label: 'Services', href: '#capabilities' },
     { label: 'Projects', href: '#work' },
+    { label: 'Team', href: '#team' },
     { label: 'Developers', href: '#developers' },
     { label: 'Contact', href: '#contact' },
   ],

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, CheckCircle2, Layers, Cpu } from 'lucide-react'
+import { X, CheckCircle2, Cpu, Calendar, Layers } from 'lucide-react'
 import type { Project } from '../../data/projects'
 import { Button } from '../ui/Button'
 
@@ -49,7 +49,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full max-w-3xl rounded-2xl bg-white dark:bg-[#090D15] border border-black/[0.1] dark:border-white/[0.12] p-6 sm:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.3)] dark:shadow-[0_24px_80px_rgba(0,0,0,0.8)] overflow-hidden z-10 max-h-[90vh] overflow-y-auto"
           >
-            {/* Top Close Button */}
+            {/* Top Close Bar */}
             <div className="flex items-center justify-between border-b border-black/[0.08] dark:border-white/[0.08] pb-5 mb-6">
               <div className="flex items-center gap-2 text-xs font-mono-tech text-neutral-500 dark:text-neutral-400">
                 <span className="w-2 h-2 rounded-full bg-[#FF4500]" />
@@ -65,11 +65,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               </button>
             </div>
 
-            {/* Title & Category */}
-            <div className="flex flex-col gap-2 mb-6">
-              <span className="text-xs font-mono-tech text-[#FF4500] uppercase tracking-wider font-semibold">
-                {project.category}
-              </span>
+            {/* Title & Category & Timeline Badge */}
+            <div className="flex flex-col gap-2.5 mb-6">
+              <div className="flex items-center justify-between gap-4 flex-wrap">
+                <span className="text-xs font-mono-tech text-[#FF4500] uppercase tracking-wider font-semibold">
+                  {project.category}
+                </span>
+
+                {/* Timeline Badge */}
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/[0.04] dark:bg-white/[0.05] border border-black/[0.08] dark:border-white/[0.08] text-xs font-mono-tech text-neutral-700 dark:text-neutral-300">
+                  <Calendar className="w-3.5 h-3.5 text-[#FF4500]" />
+                  <span>{project.timeline}</span>
+                </div>
+              </div>
+
               <h3
                 id="modal-project-title"
                 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-neutral-900 dark:text-white tracking-tight"
@@ -78,12 +87,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               </h3>
             </div>
 
-            {/* Main Visual Frame */}
-            <div className="w-full h-52 sm:h-64 rounded-xl bg-neutral-100 dark:bg-[#0F1626] border border-black/[0.08] dark:border-white/[0.08] mb-6 p-6 flex flex-col justify-between relative overflow-hidden">
+            {/* Visual Header Frame */}
+            <div className="w-full h-44 sm:h-52 rounded-xl bg-neutral-100 dark:bg-[#0F1626] border border-black/[0.08] dark:border-white/[0.08] mb-6 p-6 flex flex-col justify-between relative overflow-hidden">
               <div className="absolute inset-0 bg-tech-grid opacity-30 pointer-events-none" />
               <div
                 className="absolute -right-12 -bottom-12 w-48 h-48 rounded-full blur-[60px] pointer-events-none"
-                style={{ backgroundColor: `${project.accentColor}30` }}
+                style={{ backgroundColor: `${project.accentColor}25` }}
               />
 
               <div className="flex items-center justify-between text-xs font-mono-tech text-neutral-600 dark:text-neutral-400">
@@ -91,8 +100,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   <Layers className="w-4 h-4 text-[#FF4500]" />
                   <span>ARCHITECTURE ENGINE</span>
                 </div>
-                <span className="px-2.5 py-0.5 rounded bg-black/[0.06] dark:bg-white/[0.06] text-neutral-900 dark:text-white font-medium">
-                  {project.status}
+                <span className="text-[11px] text-neutral-500">
+                  TIMELINE: {project.timeline}
                 </span>
               </div>
 
@@ -106,22 +115,42 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               </div>
 
               <div className="flex items-center justify-between text-[11px] font-mono-tech text-neutral-500">
-                <span>YEAR: {project.year}</span>
-                <span>STATUS: VERIFIED</span>
+                <span>INNOCAPSULE // VERIFIED SYSTEM</span>
+                <span>ENGINEERED TO EVOLVE</span>
               </div>
             </div>
 
             {/* Detailed Description */}
-            <div className="flex flex-col gap-4 mb-8">
+            <div className="flex flex-col gap-3 mb-6">
               <h4 className="text-xs font-mono-tech text-neutral-500 dark:text-neutral-400 uppercase tracking-wider font-semibold">
-                Overview & Technical Architecture
+                Overview & System Purpose
               </h4>
-              <p className="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base leading-relaxed font-normal">
                 {project.description}
               </p>
             </div>
 
-            {/* Technologies */}
+            {/* Key Details Architectural Highlights */}
+            {project.keyDetails && project.keyDetails.length > 0 && (
+              <div className="flex flex-col gap-3 mb-6">
+                <h4 className="text-xs font-mono-tech text-neutral-500 dark:text-neutral-400 uppercase tracking-wider font-semibold">
+                  Key Engineering Highlights
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {project.keyDetails.map((detail) => (
+                    <div
+                      key={detail}
+                      className="flex items-start gap-2.5 p-3 rounded-lg bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.06] dark:border-white/[0.06] text-xs text-neutral-700 dark:text-neutral-300"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-[#FF4500] flex-shrink-0 mt-0.5" />
+                      <span className="leading-normal">{detail}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Core Technologies */}
             <div className="flex flex-col gap-3 mb-8">
               <h4 className="text-xs font-mono-tech text-neutral-500 dark:text-neutral-400 uppercase tracking-wider flex items-center gap-1.5 font-semibold">
                 <Cpu className="w-3.5 h-3.5 text-[#FF4500]" />
@@ -131,7 +160,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 rounded-md bg-black/[0.04] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] text-xs font-mono-tech text-neutral-700 dark:text-neutral-300"
+                    className="px-3 py-1.5 rounded-md bg-black/[0.04] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] text-xs font-mono-tech text-neutral-700 dark:text-neutral-300"
                   >
                     {tech}
                   </span>
@@ -142,8 +171,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             {/* Modal Actions */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-black/[0.08] dark:border-white/[0.08]">
               <div className="flex items-center gap-2 text-xs font-mono-tech text-neutral-500">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>Production Pipeline Ready</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>Architectural Specification Verified</span>
               </div>
 
               <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -173,3 +202,4 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     </AnimatePresence>
   )
 }
+

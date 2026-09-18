@@ -5,14 +5,12 @@ import { Hero } from './components/hero/Hero'
 import { About } from './components/about/About'
 import { Capabilities } from './components/capabilities/Capabilities'
 import { FeaturedWork } from './components/projects/FeaturedWork'
-import { Process } from './components/process/Process'
-import { TechnologyEcosystem } from './components/technology/TechnologyEcosystem'
-import { EngineeringPrinciples } from './components/principles/EngineeringPrinciples'
 import { Leadership } from './components/team/Leadership'
+import { Contact } from './components/contact/Contact'
 import { DeveloperShowcase } from './components/developers/DeveloperShowcase'
 import { BrandMark } from './components/ui/BrandMark'
 import { siteConfig } from './data/site'
-import { ArrowUpRight } from 'lucide-react'
+import { Mail, ArrowUp } from 'lucide-react'
 
 export const MainContent: React.FC = () => {
   const [currentView, setCurrentView] = useState<'home' | 'developers'>(() => {
@@ -108,56 +106,50 @@ export const MainContent: React.FC = () => {
             {/* 4. Portfolio Showcase: Selected Work */}
             <FeaturedWork />
 
-            {/* 5. Methodology & Delivery: Our Process */}
-            <Process />
-
-            {/* 6. System Architecture: Technology Ecosystem */}
-            <TechnologyEcosystem />
-
-            {/* 7. Engineering Manifesto: How We Think */}
-            <EngineeringPrinciples />
-
-            {/* 8. Leadership Core: 3D Interactive ID Cards with direct link to Developer Profiles */}
+            {/* 5. Leadership Core: 3D Interactive ID Cards with direct link to Developer Profiles */}
             <Leadership onOpenDeveloper={handleOpenDeveloper} />
 
-            {/* Anchor for Contact */}
-            <section id="contact" className="sr-only">
-              <h2>Contact</h2>
-            </section>
+            {/* 6. Contact Transmission Section */}
+            <Contact />
           </>
         )}
       </main>
 
-      {/* Minimal Studio Footer */}
+      {/* Redesigned Studio Footer */}
       <footer className="border-t border-black/[0.08] dark:border-white/[0.08] py-12 bg-[#F8F9FA] dark:bg-[#090B0E] text-xs font-mono-tech text-neutral-500 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <BrandMark size={22} withText={true} animate={false} />
-            <span className="text-neutral-400 dark:text-neutral-600">//</span>
-            <span>{siteConfig.meta.version}</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Brand & Ticker */}
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <BrandMark size={24} withText={true} animate={false} />
+            <span className="hidden sm:inline text-neutral-300 dark:text-neutral-700">//</span>
+            <span className="text-[11px] text-neutral-400 dark:text-neutral-500 tracking-wider">
+              {siteConfig.ticker}
+            </span>
           </div>
 
-          <div className="flex items-center gap-6 text-neutral-600 dark:text-neutral-400">
+          {/* Direct Email Contact Link */}
+          <div className="flex items-center gap-2">
             <a
-              href="https://github.com"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-[#FF4500] transition-colors flex items-center gap-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF4500]"
+              href="mailto:innocapsule@gmail.com"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.06] dark:border-white/[0.08] text-neutral-700 dark:text-neutral-300 hover:text-[#FF4500] hover:border-[#FF4500]/30 transition-all text-xs font-mono-tech"
             >
-              GitHub <ArrowUpRight className="w-3 h-3" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-[#FF4500] transition-colors flex items-center gap-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF4500]"
-            >
-              LinkedIn <ArrowUpRight className="w-3 h-3" />
+              <Mail className="w-3.5 h-3.5 text-[#FF4500]" />
+              <span>innocapsule@gmail.com</span>
             </a>
           </div>
 
-          <div className="text-[11px] text-neutral-500 dark:text-neutral-500">
-            &copy; {new Date().getFullYear()} InnoCapsule. All rights reserved.
+          {/* Copyright & Back to Top */}
+          <div className="flex items-center gap-5 text-[11px] text-neutral-500">
+            <span>&copy; {new Date().getFullYear()} InnoCapsule. All rights reserved.</span>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="hover:text-[#FF4500] transition-colors flex items-center gap-1 font-semibold text-neutral-600 dark:text-neutral-400"
+              aria-label="Back to top of page"
+            >
+              <span>TOP</span>
+              <ArrowUp className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
       </footer>
