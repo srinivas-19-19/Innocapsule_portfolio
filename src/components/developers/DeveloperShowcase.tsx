@@ -290,7 +290,7 @@ export const DeveloperShowcase: React.FC<DeveloperShowcaseProps> = ({
                 <div className="flex flex-wrap items-center gap-3 pt-2">
                   <a
                     href={dev.resumeUrl || `${cleanBase}Srinivas_Gorkal_Resume.pdf`}
-                    download="Srinivas_Gorkal_Resume.pdf"
+                    download={dev.id === 'founder' ? 'Srinivas_Gorkal_Resume.pdf' : 'Manikanta_Reddy_Resume.pdf'}
                     target="_blank"
                     rel="noreferrer"
                     className="px-5 py-2.5 rounded-full bg-[#FF4500] hover:bg-[#E03E00] text-white text-xs font-bold shadow-[0_2px_12px_rgba(255,69,0,0.35)] hover:shadow-[0_4px_20px_rgba(255,69,0,0.5)] transition-all flex items-center gap-2 cursor-pointer"

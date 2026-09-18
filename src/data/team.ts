@@ -27,12 +27,12 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'co-founder',
     name: 'Manikanta Reddy Kuruva',
-    role: 'Co-Founder & Spatial Lead',
-    subtitle: 'Co-Founder & Spatial Lead',
-    badgeText: '// VERIFIED',
+    role: 'Full-Stack Developer & AI Enthusiast',
+    subtitle: 'Full-Stack Developer & AI Enthusiast',
+    badgeText: 'Manikanta Reddy Kuruva',
     image: `${cleanBase}team/co-founder.jpg`,
     description:
-      'I focus on spatial intelligence, distributed systems, and modern web infrastructure. Dedicated to transforming ambitious ideas into resilient software experiences with robust architectures built to evolve.',
-    verified: true,
+      'Computer Science Engineering student with a Diploma in Computer Engineering (92.17%) and hands-on experience in full-stack web development, AI-driven applications, database systems, and real-world software platforms.',
+    verified: false,
   },
 ]
